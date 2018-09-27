@@ -39,4 +39,21 @@ class Movie
     SqlRunner.run(sql, values)
   end
 
+  def actors()
+    # we have movie id
+    sql = "
+    SELECT actors.*
+    FROM actors
+
+    INNER JOIN roles
+    ON actors.id = roles.actor_id
+
+    WHERE roles.movie_id = $1;
+    "
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    actors = results.map { |actor_hash| Actor.new(actor_hash) }
+    # return array of actor objects
+  end
+
 end

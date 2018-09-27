@@ -43,5 +43,31 @@ movie3.save()
 actor1.f_name = "Ed"
 actor1.update
 
+role1 = Role.new({
+  "movie_id" => movie1.id,
+  "actor_id" => actor1.id,
+  "fees"      => 1000000
+  })
+role2 = Role.new({
+  "movie_id" => movie1.id,
+  "actor_id" => actor2.id,
+  "fees"      => 2000000
+  })
+role3 = Role.new({
+  "movie_id" => movie2.id,
+  "actor_id" => actor3.id,
+  "fees"      => 3000000
+  })
+role4 = Role.new({
+  "movie_id" => movie3.id,
+  "actor_id" => actor2.id,
+  "fees"      => 4000000
+  })
+
+role1.save()
+role2.save()
+role3.save()
+role4.save()
+
 binding.pry
 nil
